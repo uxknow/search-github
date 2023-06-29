@@ -16,11 +16,13 @@ const HistoryModal = ({ isOpen, onClose }) => {
   const [searchUsers, setSearchUsers] = useState([]);
 
   useEffect(() => {
-    const users = localStorage.getItem("users")
+    if(isOpen) {
+      const users = localStorage.getItem("users")
       ? JSON.parse(localStorage.getItem("users"))
       : [];
     setSearchUsers(users);
-  }, [localStorage.getItem("users")]);
+    }
+  }, [isOpen]);
 
   const deleteUser = (username) => {
     const filterUsers = searchUsers.filter(
