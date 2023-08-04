@@ -140,7 +140,7 @@ const UserInfo = ({ userData }) => {
             {infoUser.map(([title, value]) => (
               <StyledListItem key={title}>
                 <StyledListItemText>{title}:</StyledListItemText>
-                {title.includes("Blog") ? (
+                {title.startsWith('Blog') && value !== 'Not Specified'  ? (
                   <StyledLink href={blog} target="_blank" rel="noreferrer">
                     {value}
                   </StyledLink>
